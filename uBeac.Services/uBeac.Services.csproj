@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\uBeac.Repositories.Abstractions\uBeac.Repositories.Abstractions.csproj" />
+    <ProjectReference Include="..\uBeac.Services.Abstractions\uBeac.Services.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
