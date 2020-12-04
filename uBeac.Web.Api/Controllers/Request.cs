@@ -1,9 +1,13 @@
 ﻿namespace uBeac.Web.Api.Controllers
 {
-    public interface IRequest<TEntity>
+    public interface IRequest
     {
         string Language { get; set; }
         string SessionId { get; set; }
+    }
+
+    public interface IRequest<TEntity> : IRequest
+    {
         TEntity Data { get; set; }
     }
 

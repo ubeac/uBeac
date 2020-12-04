@@ -11,6 +11,7 @@ namespace uBeac.Web.Api.Controllers
         string TraceId { get; set; }
         string Language { get; set; }
         string SessionId { get; set; }
+        IRequest Request { get; }
     }
 
     public interface IResponse<TEntity> : IResponse
@@ -27,6 +28,8 @@ namespace uBeac.Web.Api.Controllers
         public string TraceId { get; set; }
         public string Language { get; set; }
         public string SessionId { get; set; }
+        public IRequest Request { get; }
+
         public Response()
         {
             Errors = new Dictionary<string, string>();
