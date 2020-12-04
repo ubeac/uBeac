@@ -10,7 +10,7 @@ using uBeac.Repositories.Abstractions;
 
 namespace uBeac.Repositories
 {
-    public abstract class BaseEntityRepository<TKey, TEntity> : IBaseEntityRepository<TKey, TEntity>
+    public class BaseEntityRepository<TKey, TEntity> : IBaseEntityRepository<TKey, TEntity>
          where TEntity : class, IEntity<TKey>, new()
          where TKey : IEquatable<TKey>
     {
@@ -137,7 +137,7 @@ namespace uBeac.Repositories
         }
     }
 
-    public abstract class BaseEntityRepository<TEntity> : BaseEntityRepository<int, TEntity> where TEntity : class, IEntity, new()
+    public class BaseEntityRepository<TEntity> : BaseEntityRepository<Guid, TEntity> where TEntity : class, IEntity, new()
     {
         public BaseEntityRepository(DbContext context) : base(context)
         {

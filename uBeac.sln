@@ -19,15 +19,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.Sqlite",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Services", "uBeac.Services\uBeac.Services.csproj", "{BF01D754-C95A-4092-B173-C5F257A01D65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Web.Api.Documentation", "uBeac.Web.Api.Documentation\uBeac.Web.Api.Documentation.csproj", "{E29F28EF-885A-4627-B8FC-BCB646F2DE76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Web.Api.Documentation", "uBeac.Web.Api.Documentation\uBeac.Web.Api.Documentation.csproj", "{E29F28EF-885A-4627-B8FC-BCB646F2DE76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Web", "uBeac.Web\uBeac.Web.csproj", "{2A0F868F-5277-4555-8336-618AA8D12C31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Web", "uBeac.Web\uBeac.Web.csproj", "{2A0F868F-5277-4555-8336-618AA8D12C31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Web.Api", "uBeac.Web.Api\uBeac.Web.Api.csproj", "{AA000524-2FF0-454D-9D8B-E7F77DEE130C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Web.Api", "uBeac.Web.Api\uBeac.Web.Api.csproj", "{AA000524-2FF0-454D-9D8B-E7F77DEE130C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{28058D35-97C8-4C48-9FB5-213B50073FC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Configuration", "uBeac.Configuration\uBeac.Configuration.csproj", "{799420F0-0A09-47FA-B246-1B9BC8DD4703}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Configuration", "uBeac.Configuration\uBeac.Configuration.csproj", "{799420F0-0A09-47FA-B246-1B9BC8DD4703}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.IoT.Api", "uBeac.IoT.Api\uBeac.IoT.Api.csproj", "{98E2D0AE-6B60-42F6-B033-41B8E63CC4E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.IoT.Models", "uBeac.IoT.Models\uBeac.IoT.Models.csproj", "{6A6C47A9-57BC-495B-95C3-54F73C21A5A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,14 +81,18 @@ Global
 		{AA000524-2FF0-454D-9D8B-E7F77DEE130C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA000524-2FF0-454D-9D8B-E7F77DEE130C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA000524-2FF0-454D-9D8B-E7F77DEE130C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{28058D35-97C8-4C48-9FB5-213B50073FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28058D35-97C8-4C48-9FB5-213B50073FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28058D35-97C8-4C48-9FB5-213B50073FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28058D35-97C8-4C48-9FB5-213B50073FC9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{799420F0-0A09-47FA-B246-1B9BC8DD4703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{799420F0-0A09-47FA-B246-1B9BC8DD4703}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{799420F0-0A09-47FA-B246-1B9BC8DD4703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{799420F0-0A09-47FA-B246-1B9BC8DD4703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98E2D0AE-6B60-42F6-B033-41B8E63CC4E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98E2D0AE-6B60-42F6-B033-41B8E63CC4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98E2D0AE-6B60-42F6-B033-41B8E63CC4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98E2D0AE-6B60-42F6-B033-41B8E63CC4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A6C47A9-57BC-495B-95C3-54F73C21A5A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A6C47A9-57BC-495B-95C3-54F73C21A5A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A6C47A9-57BC-495B-95C3-54F73C21A5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A6C47A9-57BC-495B-95C3-54F73C21A5A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

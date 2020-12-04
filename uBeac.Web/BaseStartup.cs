@@ -36,8 +36,8 @@ namespace uBeac.Web
             services.AddAuthorization();
 
             services.AddHttpContextAccessor();
-            //services.RegisterRepositories();
-            //services.RegisterServices();
+            services.RegisterRepositories();
+            services.RegisterServices();
 
             services.AddMemoryCache();
             services.AddSwagger(Configuration);

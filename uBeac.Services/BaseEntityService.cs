@@ -8,9 +8,9 @@ using uBeac.Services.Abstractions;
 
 namespace uBeac.Services
 {
-    public abstract class BaseEntityService<TKey, TEntity> 
-        : IBaseEntityService<TKey, TEntity> 
-        where TEntity : class, IEntity<TKey> 
+    public class BaseEntityService<TKey, TEntity>
+        : IBaseEntityService<TKey, TEntity>
+        where TEntity : class, IEntity<TKey>
         where TKey : IEquatable<TKey>
     {
         protected readonly IBaseEntityRepository<TKey, TEntity> Repository;
@@ -72,8 +72,8 @@ namespace uBeac.Services
             return await Repository.Filter(filterCriteria, cancellationToken);
         }
     }
-    public abstract class BaseEntityService<TEntity> 
-        : BaseEntityService<int, TEntity>
+    public class BaseEntityService<TEntity>
+        : BaseEntityService<Guid, TEntity>
         where TEntity : class, IEntity
     {
         public BaseEntityService(IBaseEntityRepository<TEntity> repository) : base(repository)
@@ -82,7 +82,7 @@ namespace uBeac.Services
         public override async Task<bool> Add(TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
-            if (entity.Id != 0)
+            if (entity.Id != Guid.Empty)
             {
                 throw new Exception(string.Format("Exception while adding {0}, Id has been set to {1}", entity.GetType().Name, entity.Id.ToString()));
             }

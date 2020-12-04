@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using uBeac.Web.Api.Controllers;
 
-namespace TestApp.Controllers
+namespace uBeac.IoT.Api.Controllers
 {
     public class TestController : BaseController
     {

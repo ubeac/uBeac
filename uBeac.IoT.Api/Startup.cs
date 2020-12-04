@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using uBeac.Web;
 
-namespace TestApp
+namespace uBeac.IoT.Api
 {
     public class Startup : BaseStartup
     {

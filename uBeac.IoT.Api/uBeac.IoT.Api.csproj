@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\uBeac.IoT.Models\uBeac.IoT.Models.csproj" />
     <ProjectReference Include="..\uBeac.Web\uBeac.Web.csproj" />
   </ItemGroup>
 

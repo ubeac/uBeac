@@ -21,7 +21,7 @@ namespace uBeac.Repositories.Abstractions
         Task<int> SaveChanges(CancellationToken cancellationToken = default);
         Task<PaginatedList<TEntity>> Filter(FilterCriteria<TEntity> filterCriteria, CancellationToken cancellationToken = default);
     }
-    public interface IBaseEntityRepository<TEntity> : IBaseEntityRepository<int, TEntity>
+    public interface IBaseEntityRepository<TEntity> : IBaseEntityRepository<Guid, TEntity>
         where TEntity : class, IEntity
     {
     }

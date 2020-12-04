@@ -6,7 +6,7 @@ namespace uBeac.Common
     {
         TKey Id { get; set; }
     }
-    public interface IEntity : IEntity<int>
+    public interface IEntity : IEntity<Guid>
     {
     }
 }

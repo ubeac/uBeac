@@ -7,7 +7,7 @@ namespace uBeac.Common
     {
         public TKey Id { get; set; }
     }
-    public class BaseEntity : BaseEntity<int>, IEntity
+    public class BaseEntity : BaseEntity<Guid>, IEntity
     {
     }
 }

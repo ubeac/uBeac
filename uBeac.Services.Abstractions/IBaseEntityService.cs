@@ -18,7 +18,7 @@ namespace uBeac.Services.Abstractions
         Task<PaginatedList<TEntity>> GetByIds(IEnumerable<TKey> ids, CancellationToken cancellationToken = default);
         Task<PaginatedList<TEntity>> Filter(FilterCriteria<TEntity> filterCriteria, CancellationToken cancellationToken = default);
     }
-    public interface IBaseEntityService<TEntity> : IBaseEntityService<int, TEntity>
+    public interface IBaseEntityService<TEntity> : IBaseEntityService<Guid, TEntity>
         where TEntity : class, IEntity
     {
     }
