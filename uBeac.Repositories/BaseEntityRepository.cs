@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using uBeac.Common;
-using uBeac.Repositories.Abstractions.Abstractions;
+using uBeac.Repositories.Abstractions;
 
 namespace uBeac.Repositories
 {

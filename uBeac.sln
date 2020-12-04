@@ -3,21 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Common", "uBeac.Common\uBeac.Common.csproj", "{729C2B05-FD33-4437-9795-997347FE5165}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Common", "uBeac.Common\uBeac.Common.csproj", "{729C2B05-FD33-4437-9795-997347FE5165}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Repositories.Abstractions", "uBeac.Repositories.Abstractions\uBeac.Repositories.Abstractions.csproj", "{E6DF813D-40F6-4986-837B-94DD8CAB3366}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.Abstractions", "uBeac.Repositories.Abstractions\uBeac.Repositories.Abstractions.csproj", "{E6DF813D-40F6-4986-837B-94DD8CAB3366}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Services.Abstractions", "uBeac.Services.Abstractions\uBeac.Services.Abstractions.csproj", "{60EECB03-9788-4A98-964F-BB934DAA743E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Services.Abstractions", "uBeac.Services.Abstractions\uBeac.Services.Abstractions.csproj", "{60EECB03-9788-4A98-964F-BB934DAA743E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Repositories", "uBeac.Repositories\uBeac.Repositories.csproj", "{FC696263-F217-4EFA-8AE6-A253515883B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories", "uBeac.Repositories\uBeac.Repositories.csproj", "{FC696263-F217-4EFA-8AE6-A253515883B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Repositories.InMemory", "uBeac.Repositories.InMemory\uBeac.Repositories.InMemory.csproj", "{858B7A7D-C6A6-4792-853F-ECB28C28A7AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.InMemory", "uBeac.Repositories.InMemory\uBeac.Repositories.InMemory.csproj", "{858B7A7D-C6A6-4792-853F-ECB28C28A7AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Repositories.SqlServer", "uBeac.Repositories.SqlServer\uBeac.Repositories.SqlServer.csproj", "{4A010B65-4656-4B6C-A311-81BC878AE631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.SqlServer", "uBeac.Repositories.SqlServer\uBeac.Repositories.SqlServer.csproj", "{4A010B65-4656-4B6C-A311-81BC878AE631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Repositories.Sqlite", "uBeac.Repositories.Sqlite\uBeac.Repositories.Sqlite.csproj", "{0C9A5BE7-29C1-4635-A9BF-D5AA57F5F23D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.Sqlite", "uBeac.Repositories.Sqlite\uBeac.Repositories.Sqlite.csproj", "{0C9A5BE7-29C1-4635-A9BF-D5AA57F5F23D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Services", "uBeac.Services\uBeac.Services.csproj", "{BF01D754-C95A-4092-B173-C5F257A01D65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Services", "uBeac.Services\uBeac.Services.csproj", "{BF01D754-C95A-4092-B173-C5F257A01D65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Web.Api.Documentation", "uBeac.Web.Api.Documentation\uBeac.Web.Api.Documentation.csproj", "{E29F28EF-885A-4627-B8FC-BCB646F2DE76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Web", "uBeac.Web\uBeac.Web.csproj", "{2A0F868F-5277-4555-8336-618AA8D12C31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Web.Api", "uBeac.Web.Api\uBeac.Web.Api.csproj", "{AA000524-2FF0-454D-9D8B-E7F77DEE130C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{28058D35-97C8-4C48-9FB5-213B50073FC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Configuration", "uBeac.Configuration\uBeac.Configuration.csproj", "{799420F0-0A09-47FA-B246-1B9BC8DD4703}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +67,26 @@ Global
 		{BF01D754-C95A-4092-B173-C5F257A01D65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF01D754-C95A-4092-B173-C5F257A01D65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF01D754-C95A-4092-B173-C5F257A01D65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E29F28EF-885A-4627-B8FC-BCB646F2DE76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E29F28EF-885A-4627-B8FC-BCB646F2DE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E29F28EF-885A-4627-B8FC-BCB646F2DE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E29F28EF-885A-4627-B8FC-BCB646F2DE76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A0F868F-5277-4555-8336-618AA8D12C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0F868F-5277-4555-8336-618AA8D12C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0F868F-5277-4555-8336-618AA8D12C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0F868F-5277-4555-8336-618AA8D12C31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA000524-2FF0-454D-9D8B-E7F77DEE130C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA000524-2FF0-454D-9D8B-E7F77DEE130C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA000524-2FF0-454D-9D8B-E7F77DEE130C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA000524-2FF0-454D-9D8B-E7F77DEE130C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28058D35-97C8-4C48-9FB5-213B50073FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28058D35-97C8-4C48-9FB5-213B50073FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28058D35-97C8-4C48-9FB5-213B50073FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28058D35-97C8-4C48-9FB5-213B50073FC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{799420F0-0A09-47FA-B246-1B9BC8DD4703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{799420F0-0A09-47FA-B246-1B9BC8DD4703}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{799420F0-0A09-47FA-B246-1B9BC8DD4703}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{799420F0-0A09-47FA-B246-1B9BC8DD4703}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
