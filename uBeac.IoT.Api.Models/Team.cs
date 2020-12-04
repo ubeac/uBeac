@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using uBeac.Common;
 
-namespace uBeac.IoT.Models
-{    
-    public partial class Team
+namespace uBeac.IoT.Api.Models
+{
+    public partial class Team : IEntity
     {
         public Team()
         {
@@ -13,12 +14,12 @@ namespace uBeac.IoT.Models
             TeamTokens = new HashSet<TeamToken>();
             TeamUsers = new HashSet<TeamUser>();
         }
-    
+
         public Guid Id { get; set; }
         public string Uid { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-    
+
         public virtual ICollection<Building> Buildings { get; set; }
         public virtual ICollection<Device> Devices { get; set; }
         public virtual ICollection<Gateway> Gateways { get; set; }

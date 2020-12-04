@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using uBeac.IoT.Models;
+using uBeac.IoT.Api.Models;
 
 namespace uBeac.IoT.Api.Repositories
 {

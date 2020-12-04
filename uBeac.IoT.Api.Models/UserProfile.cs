@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using uBeac.Common;
 
-namespace uBeac.IoT.Models
+namespace uBeac.IoT.Api.Models
 {
-    public partial class UserProfile
+    public partial class UserProfile : IEntity
     {
         public UserProfile()
         {

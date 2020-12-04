@@ -1,8 +1,9 @@
 using System;
+using uBeac.Common;
 
-namespace uBeac.IoT.Models
+namespace uBeac.IoT.Api.Models
 {
-    public partial class SensorSchemaValue
+    public partial class SensorSchemaValue : IEntity
     {
         public Guid Id { get; set; }
         public Guid SensorSchemaId { get; set; }

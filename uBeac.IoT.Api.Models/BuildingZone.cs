@@ -1,8 +1,9 @@
 using System;
+using uBeac.Common;
 
-namespace uBeac.IoT.Models
+namespace uBeac.IoT.Api.Models
 {
-    public partial class BuildingZone
+    public partial class BuildingZone : IEntity
     {
         public Guid Id { get; set; }
         public Guid BuildingId { get; set; }

@@ -1,8 +1,9 @@
 using System;
+using uBeac.Common;
 
-namespace uBeac.IoT.Models
+namespace uBeac.IoT.Api.Models
 {
-    public partial class TeamUser
+    public partial class TeamUser : IEntity
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }

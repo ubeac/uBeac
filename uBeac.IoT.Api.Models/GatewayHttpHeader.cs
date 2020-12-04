@@ -1,11 +1,12 @@
 using System;
+using uBeac.Common;
 
-namespace uBeac.IoT.Models
+namespace uBeac.IoT.Api.Models
 {
-    public partial class GatewayHttpHeader
+    public partial class GatewayHttpHeader : IEntity
     {
         public Guid Id { get; set; }
-        public System.Guid GatewayId { get; set; }
+        public Guid GatewayId { get; set; }
         public string Name { get; set; }
         public string Value { get; set; }
 
