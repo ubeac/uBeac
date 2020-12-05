@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using uBeac.Common;
 using uBeac.Repositories.Abstractions;
-
+// todo: change the name of project and namespace to BaseEntityEFRepository
 namespace uBeac.Repositories
 {
     public class BaseEntityRepository<TKey, TEntity> : IBaseEntityRepository<TKey, TEntity>
