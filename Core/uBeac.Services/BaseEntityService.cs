@@ -23,7 +23,7 @@ namespace uBeac.Services
         public override async Task<bool> Add(TEntity entity, CancellationToken cancellationToken = default)
         {
             entity.CreateDate = DateTime.Now;
-            entity.CreatedBy = _applicationContext.UserId;
+            entity.CreateBy = _applicationContext.UserId;
             return await base.Add(entity, cancellationToken);
         }
 
