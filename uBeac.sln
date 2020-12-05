@@ -3,35 +3,39 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Common", "uBeac.Common\uBeac.Common.csproj", "{729C2B05-FD33-4437-9795-997347FE5165}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Common", "Core\uBeac.Common\uBeac.Common.csproj", "{729C2B05-FD33-4437-9795-997347FE5165}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.Abstractions", "uBeac.Repositories.Abstractions\uBeac.Repositories.Abstractions.csproj", "{E6DF813D-40F6-4986-837B-94DD8CAB3366}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.Abstractions", "Core\uBeac.Repositories.Abstractions\uBeac.Repositories.Abstractions.csproj", "{E6DF813D-40F6-4986-837B-94DD8CAB3366}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Services.Abstractions", "uBeac.Services.Abstractions\uBeac.Services.Abstractions.csproj", "{60EECB03-9788-4A98-964F-BB934DAA743E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Services.Abstractions", "Core\uBeac.Services.Abstractions\uBeac.Services.Abstractions.csproj", "{60EECB03-9788-4A98-964F-BB934DAA743E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.InMemory", "uBeac.Repositories.InMemory\uBeac.Repositories.InMemory.csproj", "{858B7A7D-C6A6-4792-853F-ECB28C28A7AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.InMemory", "Core\uBeac.Repositories.InMemory\uBeac.Repositories.InMemory.csproj", "{858B7A7D-C6A6-4792-853F-ECB28C28A7AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.SqlServer", "uBeac.Repositories.SqlServer\uBeac.Repositories.SqlServer.csproj", "{4A010B65-4656-4B6C-A311-81BC878AE631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.SqlServer", "Core\uBeac.Repositories.SqlServer\uBeac.Repositories.SqlServer.csproj", "{4A010B65-4656-4B6C-A311-81BC878AE631}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.Sqlite", "uBeac.Repositories.Sqlite\uBeac.Repositories.Sqlite.csproj", "{0C9A5BE7-29C1-4635-A9BF-D5AA57F5F23D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.Sqlite", "Core\uBeac.Repositories.Sqlite\uBeac.Repositories.Sqlite.csproj", "{0C9A5BE7-29C1-4635-A9BF-D5AA57F5F23D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Services", "uBeac.Services\uBeac.Services.csproj", "{BF01D754-C95A-4092-B173-C5F257A01D65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Services", "Core\uBeac.Services\uBeac.Services.csproj", "{BF01D754-C95A-4092-B173-C5F257A01D65}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Web.Api.Documentation", "uBeac.Web.Api.Documentation\uBeac.Web.Api.Documentation.csproj", "{E29F28EF-885A-4627-B8FC-BCB646F2DE76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Web.Api.Documentation", "Core\uBeac.Web.Api.Documentation\uBeac.Web.Api.Documentation.csproj", "{E29F28EF-885A-4627-B8FC-BCB646F2DE76}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Web", "uBeac.Web\uBeac.Web.csproj", "{2A0F868F-5277-4555-8336-618AA8D12C31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Web", "Core\uBeac.Web\uBeac.Web.csproj", "{2A0F868F-5277-4555-8336-618AA8D12C31}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Web.Api", "uBeac.Web.Api\uBeac.Web.Api.csproj", "{AA000524-2FF0-454D-9D8B-E7F77DEE130C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Web.Api", "Core\uBeac.Web.Api\uBeac.Web.Api.csproj", "{AA000524-2FF0-454D-9D8B-E7F77DEE130C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Configuration", "uBeac.Configuration\uBeac.Configuration.csproj", "{799420F0-0A09-47FA-B246-1B9BC8DD4703}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Configuration", "Core\uBeac.Configuration\uBeac.Configuration.csproj", "{799420F0-0A09-47FA-B246-1B9BC8DD4703}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.IoT.Api", "uBeac.IoT.Api\uBeac.IoT.Api.csproj", "{98E2D0AE-6B60-42F6-B033-41B8E63CC4E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.IoT.Api", "IoT\uBeac.IoT.Api\uBeac.IoT.Api.csproj", "{98E2D0AE-6B60-42F6-B033-41B8E63CC4E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.IoT.Api.Models", "uBeac.IoT.Api.Models\uBeac.IoT.Api.Models.csproj", "{EC126C06-8A42-4E86-AA18-AC2AD9A7A64F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.IoT.Api.Models", "IoT\uBeac.IoT.Api.Models\uBeac.IoT.Api.Models.csproj", "{EC126C06-8A42-4E86-AA18-AC2AD9A7A64F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.MongoDB", "uBeac.Repositories.MongoDB\uBeac.Repositories.MongoDB.csproj", "{E6D9CB87-87B1-4D64-A6FE-DF6D57355CA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.MongoDB", "Core\uBeac.Repositories.MongoDB\uBeac.Repositories.MongoDB.csproj", "{E6D9CB87-87B1-4D64-A6FE-DF6D57355CA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Repositories.EF", "uBeac.Repositories.EF\uBeac.Repositories.EF.csproj", "{A0A279C9-5D47-4427-981E-D4E41AAD5C3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.EF", "Core\uBeac.Repositories.EF\uBeac.Repositories.EF.csproj", "{A0A279C9-5D47-4427-981E-D4E41AAD5C3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D3A62149-358A-419B-AEDE-875196BCBC87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoT", "IoT", "{C6F9863C-F8B2-4225-BC05-34530497F95A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,6 +106,23 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{729C2B05-FD33-4437-9795-997347FE5165} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{E6DF813D-40F6-4986-837B-94DD8CAB3366} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{60EECB03-9788-4A98-964F-BB934DAA743E} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{858B7A7D-C6A6-4792-853F-ECB28C28A7AB} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{4A010B65-4656-4B6C-A311-81BC878AE631} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{0C9A5BE7-29C1-4635-A9BF-D5AA57F5F23D} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{BF01D754-C95A-4092-B173-C5F257A01D65} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{E29F28EF-885A-4627-B8FC-BCB646F2DE76} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{2A0F868F-5277-4555-8336-618AA8D12C31} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{AA000524-2FF0-454D-9D8B-E7F77DEE130C} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{799420F0-0A09-47FA-B246-1B9BC8DD4703} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{98E2D0AE-6B60-42F6-B033-41B8E63CC4E6} = {C6F9863C-F8B2-4225-BC05-34530497F95A}
+		{EC126C06-8A42-4E86-AA18-AC2AD9A7A64F} = {C6F9863C-F8B2-4225-BC05-34530497F95A}
+		{E6D9CB87-87B1-4D64-A6FE-DF6D57355CA6} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{A0A279C9-5D47-4427-981E-D4E41AAD5C3A} = {D3A62149-358A-419B-AEDE-875196BCBC87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12959291-7F72-4E75-B672-1959E9CC8B48}

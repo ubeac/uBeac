@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\uBeac.Common\uBeac.Common.csproj" />
+    <ProjectReference Include="..\..\Core\uBeac.Common\uBeac.Common.csproj" />
   </ItemGroup>
 
 </Project>
