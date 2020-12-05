@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace uBeac.Repositories
+namespace uBeac.Repositories.EF
 {
     public static class IQueryableExtensions
     {

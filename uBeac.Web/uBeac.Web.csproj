@@ -12,7 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\uBeac.Common\uBeac.Common.csproj" />
     <ProjectReference Include="..\uBeac.Configuration\uBeac.Configuration.csproj" />
-    <ProjectReference Include="..\uBeac.Repositories\uBeac.Repositories.csproj" />
+    <ProjectReference Include="..\uBeac.Repositories.EF\uBeac.Repositories.EF.csproj" />
     <ProjectReference Include="..\uBeac.Services\uBeac.Services.csproj" />
     <ProjectReference Include="..\uBeac.Web.Api.Documentation\uBeac.Web.Api.Documentation.csproj" />
     <ProjectReference Include="..\uBeac.Web.Api\uBeac.Web.Api.csproj" />

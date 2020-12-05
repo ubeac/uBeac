@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\uBeac.Common\uBeac.Common.csproj" />
     <ProjectReference Include="..\uBeac.Repositories.Abstractions\uBeac.Repositories.Abstractions.csproj" />
   </ItemGroup>
 

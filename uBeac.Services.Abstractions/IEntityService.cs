@@ -6,9 +6,9 @@ using uBeac.Common;
 
 namespace uBeac.Services.Abstractions
 {
-    public interface IBaseEntityService<TKey, TEntity> : IService
-       where TEntity : class, IBaseEntity<TKey>
-       where TKey : IEquatable<TKey>
+    public interface IEntityService<TKey, TEntity> : IService
+              where TEntity : class, IEntity<TKey>
+              where TKey : IEquatable<TKey>
     {
         Task<bool> Add(TEntity entity, CancellationToken cancellationToken = default);
         Task<bool> Update(TEntity entity, CancellationToken cancellationToken = default);
@@ -18,8 +18,8 @@ namespace uBeac.Services.Abstractions
         Task<PaginatedList<TEntity>> GetByIds(IEnumerable<TKey> ids, CancellationToken cancellationToken = default);
         Task<PaginatedList<TEntity>> Filter(FilterCriteria<TEntity> filterCriteria, CancellationToken cancellationToken = default);
     }
-    public interface IBaseEntityService<TEntity> : IBaseEntityService<Guid, TEntity>
-        where TEntity : class, IBaseEntity
+    public interface IEntityService<TEntity> : IEntityService<Guid, TEntity>
+        where TEntity : class, IEntity
     {
     }
 }

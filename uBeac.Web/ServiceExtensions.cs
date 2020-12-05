@@ -2,6 +2,7 @@
 using System.Reflection;
 using uBeac.Repositories;
 using uBeac.Repositories.Abstractions;
+using uBeac.Repositories.EF;
 using uBeac.Services;
 using uBeac.Services.Abstractions;
 
@@ -12,8 +13,11 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection RegisterRepositories(this IServiceCollection services)
         {
 
-            services.AddScoped(typeof(IBaseEntityRepository<,>), typeof(BaseEntityRepository<,>));
-            services.AddScoped(typeof(IBaseEntityRepository<>), typeof(BaseEntityRepository<>));
+            services.AddScoped(typeof(IEntityRepository<,>), typeof(EntityGenericRepository<,>));
+            services.AddScoped(typeof(IEntityRepository<>), typeof(EntityGenericRepository<>));
+
+            services.AddScoped(typeof(IBaseEntityRepository<,>), typeof(BaseEntityGenericRepository<,>));
+            services.AddScoped(typeof(IBaseEntityRepository<>), typeof(BaseEntityGenericRepository<>));
 
             var assem = Assembly.GetEntryAssembly();
 
@@ -34,6 +38,9 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddScoped(typeof(IBaseEntityService<,>), typeof(BaseEntityService<,>));
             services.AddScoped(typeof(IBaseEntityService<>), typeof(BaseEntityService<>));
+
+            services.AddScoped(typeof(IEntityService<,>), typeof(EntityService<,>));
+            services.AddScoped(typeof(IEntityService<>), typeof(EntityService<>));
 
             var assem = Assembly.GetEntryAssembly();
 

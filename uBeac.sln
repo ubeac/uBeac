@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.Abstract
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Services.Abstractions", "uBeac.Services.Abstractions\uBeac.Services.Abstractions.csproj", "{60EECB03-9788-4A98-964F-BB934DAA743E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories", "uBeac.Repositories\uBeac.Repositories.csproj", "{FC696263-F217-4EFA-8AE6-A253515883B6}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.InMemory", "uBeac.Repositories.InMemory\uBeac.Repositories.InMemory.csproj", "{858B7A7D-C6A6-4792-853F-ECB28C28A7AB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.SqlServer", "uBeac.Repositories.SqlServer\uBeac.Repositories.SqlServer.csproj", "{4A010B65-4656-4B6C-A311-81BC878AE631}"
@@ -31,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.IoT.Api", "uBeac.IoT.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.IoT.Api.Models", "uBeac.IoT.Api.Models\uBeac.IoT.Api.Models.csproj", "{EC126C06-8A42-4E86-AA18-AC2AD9A7A64F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Repositories.MongoDB", "uBeac.Repositories.MongoDB\uBeac.Repositories.MongoDB.csproj", "{E6D9CB87-87B1-4D64-A6FE-DF6D57355CA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Repositories.MongoDB", "uBeac.Repositories.MongoDB\uBeac.Repositories.MongoDB.csproj", "{E6D9CB87-87B1-4D64-A6FE-DF6D57355CA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Repositories.EF", "uBeac.Repositories.EF\uBeac.Repositories.EF.csproj", "{A0A279C9-5D47-4427-981E-D4E41AAD5C3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,6 @@ Global
 		{60EECB03-9788-4A98-964F-BB934DAA743E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60EECB03-9788-4A98-964F-BB934DAA743E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60EECB03-9788-4A98-964F-BB934DAA743E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC696263-F217-4EFA-8AE6-A253515883B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC696263-F217-4EFA-8AE6-A253515883B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC696263-F217-4EFA-8AE6-A253515883B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC696263-F217-4EFA-8AE6-A253515883B6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{858B7A7D-C6A6-4792-853F-ECB28C28A7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{858B7A7D-C6A6-4792-853F-ECB28C28A7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{858B7A7D-C6A6-4792-853F-ECB28C28A7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -99,6 +95,10 @@ Global
 		{E6D9CB87-87B1-4D64-A6FE-DF6D57355CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6D9CB87-87B1-4D64-A6FE-DF6D57355CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6D9CB87-87B1-4D64-A6FE-DF6D57355CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0A279C9-5D47-4427-981E-D4E41AAD5C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0A279C9-5D47-4427-981E-D4E41AAD5C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0A279C9-5D47-4427-981E-D4E41AAD5C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0A279C9-5D47-4427-981E-D4E41AAD5C3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,80 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using uBeac.Common;
 using uBeac.Repositories.Abstractions;
-using uBeac.Services.Abstractions;
 
 namespace uBeac.Services
 {
     public class BaseEntityService<TKey, TEntity>
-        : IBaseEntityService<TKey, TEntity>
-        where TEntity : class, IEntity<TKey>
+        : EntityService<TKey, TEntity>
+        where TEntity : class, IBaseEntity<TKey>, new()
         where TKey : IEquatable<TKey>
     {
-        protected readonly IBaseEntityRepository<TKey, TEntity> Repository;
-
-        public BaseEntityService(IBaseEntityRepository<TKey, TEntity> repository)
+        private readonly IApplicationContext<TKey> _applicationContext;
+        public BaseEntityService(IBaseEntityRepository<TKey, TEntity> repository, IApplicationContext<TKey> applicationContext) : base(repository)
         {
-            Repository = repository;
+            if (_applicationContext is null)
+                throw new NullReferenceException("ApplicationContext is null in " + GetType().Name);
+
+            _applicationContext = applicationContext;
         }
 
-        public virtual async Task<bool> Add(TEntity entity, CancellationToken cancellationToken = default)
+        public override async Task<bool> Add(TEntity entity, CancellationToken cancellationToken = default)
         {
-            cancellationToken.ThrowIfCancellationRequested();
-
-            await Repository.Insert(entity, cancellationToken);
-            var result = (await Repository.SaveChanges(cancellationToken)) > 0;
-            return result;
+            entity.CreateDate = DateTime.Now;
+            entity.CreatedBy = _applicationContext.UserId;
+            return await base.Add(entity, cancellationToken);
         }
 
-        public virtual async Task<bool> Update(TEntity entity, CancellationToken cancellationToken = default)
+        public override async Task<bool> Update(TEntity entity, CancellationToken cancellationToken = default)
         {
-            cancellationToken.ThrowIfCancellationRequested();
-
-            await Repository.Update(entity, cancellationToken);
-            var result = (await Repository.SaveChanges(cancellationToken)) > 0;
-            return result;
-        }
-
-        public virtual async Task<bool> Delete(TKey id, CancellationToken cancellationToken = default)
-        {
-            cancellationToken.ThrowIfCancellationRequested();
-
-            await Repository.Delete(id, cancellationToken);
-            var result = (await Repository.SaveChanges(cancellationToken)) > 0;
-            return result;
-        }
-
-        public virtual async Task<PaginatedList<TEntity>> GetAll(CancellationToken cancellationToken = default)
-        {
-            cancellationToken.ThrowIfCancellationRequested();
-            return await Repository.GetAll(cancellationToken);
-        }
-
-        public virtual async Task<TEntity> GetById(TKey id, CancellationToken cancellationToken = default)
-        {
-            cancellationToken.ThrowIfCancellationRequested();
-
-            return await Repository.GetById(id, cancellationToken);
-        }
-
-        public virtual async Task<PaginatedList<TEntity>> GetByIds(IEnumerable<TKey> ids, CancellationToken cancellationToken = default)
-        {
-            cancellationToken.ThrowIfCancellationRequested();
-
-            return (await Repository.GetByIds(ids, cancellationToken));
-        }
-
-        public virtual async Task<PaginatedList<TEntity>> Filter(FilterCriteria<TEntity> filterCriteria, CancellationToken cancellationToken = default)
-        {
-            return await Repository.Filter(filterCriteria, cancellationToken);
+            entity.UpdateDate = DateTime.Now;
+            entity.UpdateBy = _applicationContext.UserId;
+            return await base.Update(entity, cancellationToken);
         }
     }
     public class BaseEntityService<TEntity>
-        : BaseEntityService<Guid, TEntity>
-        where TEntity : class, IEntity
+        : EntityService<Guid, TEntity>
+        where TEntity : class, IBaseEntity
     {
         public BaseEntityService(IBaseEntityRepository<TEntity> repository) : base(repository)
         {

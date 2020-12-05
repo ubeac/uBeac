@@ -7,17 +7,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using uBeac.Common;
 using uBeac.Repositories.Abstractions;
-// todo: change the name of project and namespace to BaseEntityEFRepository
-namespace uBeac.Repositories
+
+namespace uBeac.Repositories.EF
 {
-    public class BaseEntityRepository<TKey, TEntity> : IBaseEntityRepository<TKey, TEntity>
-         where TEntity : class, IEntity<TKey>, new()
-         where TKey : IEquatable<TKey>
+    public class EntityGenericRepository<TKey, TEntity> : IEntityRepository<TKey, TEntity>
+        where TEntity : class, IEntity<TKey>, new()
+        where TKey : IEquatable<TKey>
     {
 
         protected readonly DbContext Context;
         protected readonly DbSet<TEntity> Entities;
-        public BaseEntityRepository(DbContext context)
+        public EntityGenericRepository(DbContext context)
         {
             Context = context;
             Entities = context.Set<TEntity>();
@@ -137,9 +137,10 @@ namespace uBeac.Repositories
         }
     }
 
-    public class BaseEntityRepository<TEntity> : BaseEntityRepository<Guid, TEntity> where TEntity : class, IEntity, new()
+    public class EntityGenericRepository<TEntity> : EntityGenericRepository<Guid, TEntity> 
+        where TEntity : class, IEntity, new()
     {
-        public BaseEntityRepository(DbContext context) : base(context)
+        public EntityGenericRepository(DbContext context) : base(context)
         {
         }
     }
