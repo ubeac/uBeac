@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using uBeac.Repositories.Abstractions;
 using uBeac.Common;
 using System.Threading.Tasks;
@@ -11,7 +10,7 @@ using System.Linq;
 
 namespace uBeac.Repositories.MongoDB
 {
-    public class EntityGenericRepository<TKey, TEntity> : IEntityRepository<TKey, TEntity>, IDisposable
+    public class MongoDBEntityGenericRepository<TKey, TEntity> : IEntityRepository<TKey, TEntity>, IDisposable
         where TEntity : class, IEntity<TKey>
         where TKey : IEquatable<TKey>
     {
@@ -19,14 +18,17 @@ namespace uBeac.Repositories.MongoDB
         protected readonly IMongoDatabase Database;
         protected readonly IMongoCollection<TEntity> Collection;
         protected readonly IMongoCollection<BsonDocument> BsonCollection;
+        protected readonly IMongoDbContext DbContext;
+
         protected string CollectionName { get; }
 
-        public EntityGenericRepository(IMongoDatabase database)
+        public MongoDBEntityGenericRepository(IMongoDbContext dbContext)
         {
-            database.ThrowIfNull();
+            dbContext.ThrowIfNull();
             CollectionName = typeof(TEntity).Name;
 
-            Database = database;
+            Database = dbContext.Database;
+            DbContext = dbContext;
             Collection = Database.GetCollection<TEntity>(CollectionName);
             BsonCollection = Database.GetCollection<BsonDocument>(CollectionName);
 
@@ -200,5 +202,13 @@ namespace uBeac.Repositories.MongoDB
         }
 
         #endregion
+    }
+
+    public class MongoDBEntityGenericRepository<TEntity> : MongoDBEntityGenericRepository<Guid, TEntity>
+        where TEntity : class, IEntity
+    {
+        public MongoDBEntityGenericRepository(IMongoDbContext dbContext) : base(dbContext)
+        {
+        }
     }
 }
