@@ -10,7 +10,7 @@ namespace uBeac.Common
         public int PageSize { get; set; } = 1;
         public int TotalPages { get; set; } = 1;
         public int PageNumber { get; set; } = 1;
-        public int TotalCount { get; set; }
+        public long TotalCount { get; set; }
         public bool HasPrevious { get; set; } = false;
         public bool HasNext { get; set; } = false;
         public ICollection<T> Items { get; }
@@ -19,7 +19,7 @@ namespace uBeac.Common
         {
         }
 
-        public PaginatedList(IEnumerable<T> items, int pageNumber, int pageSize, int totalCount)
+        public PaginatedList(IEnumerable<T> items, int pageNumber, int pageSize, long totalCount)
         {
             Items = items.ToList();
             PageSize = pageSize;

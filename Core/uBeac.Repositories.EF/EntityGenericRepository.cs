@@ -26,26 +26,32 @@ namespace uBeac.Repositories.EF
         public virtual async Task Insert(TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
+
             await Entities.AddAsync(entity);
+            await SaveChanges(cancellationToken);
         }
 
         public virtual async Task InsertMany(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
+
             await Entities.AddRangeAsync(entities);
+            await SaveChanges(cancellationToken);
         }
 
         public virtual async Task Update(TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
+
             await Task.Run(() => Context.Entry(entity).State = EntityState.Modified);
+            await SaveChanges(cancellationToken);
         }
 
-        public virtual async Task<int> SaveChanges(CancellationToken cancellationToken = default)
+        protected virtual async Task<int> SaveChanges(CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            return await Context.SaveChangesAsync();
+            return await Context.SaveChangesAsync(cancellationToken);
         }
 
         public virtual async Task Delete(TKey id, CancellationToken cancellationToken = default)
@@ -54,6 +60,7 @@ namespace uBeac.Repositories.EF
 
             var entity = new TEntity { Id = id };
             await Task.FromResult(Context.Entry(entity).State = EntityState.Deleted);
+            await SaveChanges(cancellationToken);
         }
 
         public virtual async Task DeleteMany(IEnumerable<TKey> ids, CancellationToken cancellationToken = default)
@@ -61,7 +68,12 @@ namespace uBeac.Repositories.EF
             cancellationToken.ThrowIfCancellationRequested();
 
             foreach (var id in ids)
-                await Delete(id, cancellationToken);
+            {
+                var entity = new TEntity { Id = id };
+                Context.Entry(entity).State = EntityState.Deleted;
+            }
+
+            await SaveChanges(cancellationToken);
         }
 
         public virtual async Task<PaginatedList<TEntity>> GetAll(CancellationToken cancellationToken = default)
@@ -137,7 +149,7 @@ namespace uBeac.Repositories.EF
         }
     }
 
-    public class EntityGenericRepository<TEntity> : EntityGenericRepository<Guid, TEntity> 
+    public class EntityGenericRepository<TEntity> : EntityGenericRepository<Guid, TEntity>
         where TEntity : class, IEntity, new()
     {
         public EntityGenericRepository(DbContext context) : base(context)

@@ -18,7 +18,6 @@ namespace uBeac.Repositories.Abstractions
         Task<PaginatedList<TEntity>> GetAll(CancellationToken cancellationToken = default);
         Task<TEntity> GetById(TKey id, CancellationToken cancellationToken = default);
         Task<PaginatedList<TEntity>> GetByIds(IEnumerable<TKey> ids, CancellationToken cancellationToken = default);
-        Task<int> SaveChanges(CancellationToken cancellationToken = default);
         Task<PaginatedList<TEntity>> Filter(FilterCriteria<TEntity> filterCriteria, CancellationToken cancellationToken = default);
     }
     public interface IEntityRepository<TEntity> : IEntityRepository<Guid, TEntity>

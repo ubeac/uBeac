@@ -25,8 +25,7 @@ namespace uBeac.Services
             cancellationToken.ThrowIfCancellationRequested();
 
             await Repository.Insert(entity, cancellationToken);
-            var result = (await Repository.SaveChanges(cancellationToken)) > 0;
-            return result;
+            return true;
         }
 
         public virtual async Task<bool> Update(TEntity entity, CancellationToken cancellationToken = default)
@@ -34,8 +33,7 @@ namespace uBeac.Services
             cancellationToken.ThrowIfCancellationRequested();
 
             await Repository.Update(entity, cancellationToken);
-            var result = (await Repository.SaveChanges(cancellationToken)) > 0;
-            return result;
+            return true;
         }
 
         public virtual async Task<bool> Delete(TKey id, CancellationToken cancellationToken = default)
@@ -43,8 +41,7 @@ namespace uBeac.Services
             cancellationToken.ThrowIfCancellationRequested();
 
             await Repository.Delete(id, cancellationToken);
-            var result = (await Repository.SaveChanges(cancellationToken)) > 0;
-            return result;
+            return true;
         }
 
         public virtual async Task<PaginatedList<TEntity>> GetAll(CancellationToken cancellationToken = default)
