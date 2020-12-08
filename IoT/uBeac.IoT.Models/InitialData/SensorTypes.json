@@ -1,0 +1,98 @@
+﻿[
+  {
+    "id": 0,
+    "name": "Unknown"
+  },
+  {
+    "id": 1,
+    "name": "Custom"
+  },
+  {
+    "id": 2,
+    "name": "Location (GPS)"
+  },
+  {
+    "id": 3,
+    "name": "Distance"
+  },
+  {
+    "id": 4,
+    "name": "Temperature"
+  },
+  {
+    "id": 5,
+    "name": "Humidity"
+  },
+  {
+    "id": 6,
+    "name": "Voltage"
+  },
+  {
+    "id": 7,
+    "name": "Acceleration"
+  },
+  {
+    "id": 8,
+    "name": "MagneticField"
+  },
+  {
+    "id": 9,
+    "name": "RotationalMotion"
+  },
+  {
+    "id": 10,
+    "name": "Proximity"
+  },
+  {
+    "id": 11,
+    "name": "Illuminance"
+  },
+  {
+    "id": 12,
+    "name": "Pressure"
+  },
+  {
+    "id": 13,
+    "name": "Counter"
+  },
+  {
+    "id": 14,
+    "name": "Orientation"
+  },
+  {
+    "id": 15,
+    "name": "Gyroscope"
+  },
+  {
+    "id": 16,
+    "name": "Sound"
+  },
+  {
+    "id": 17,
+    "name": "SignalStrength"
+  },
+  {
+    "id": 18,
+    "name": "Processor"
+  },
+  {
+    "id": 19,
+    "name": "Memory"
+  },
+  {
+    "id": 20,
+    "name": "Disk Space"
+  },
+  {
+    "id": 21,
+    "name": "BandWidth"
+  },
+  {
+    "id": 22,
+    "name": "Revolution"
+  },
+  {
+    "id": 23,
+    "name": "Bus"
+  }
+]

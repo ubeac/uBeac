@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\uBeac.Web\uBeac.Web.csproj" />
+    <ProjectReference Include="..\uBeac.IoT.Models\uBeac.IoT.Models.csproj" />
   </ItemGroup>
 
 </Project>

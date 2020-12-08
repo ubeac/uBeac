@@ -1,0 +1,128 @@
+﻿[
+  {
+    "name": "",
+    "symbol": "",
+    "base10": "0",
+    "scale": "One"
+  },
+  {
+    "name": "yotta",
+    "symbol": "Y",
+    "base10": "24",
+    "scale": "Septillion"
+  },
+  {
+    "name": "zetta",
+    "symbol": "Z",
+    "base10": "21",
+    "scale": "Sextillion"
+  },
+  {
+    "name": "exa",
+    "symbol": "E",
+    "base10": "18",
+    "scale": "Quintillion"
+  },
+  {
+    "name": "peta",
+    "symbol": "P",
+    "base10": "15",
+    "scale": "Quadrillion"
+  },
+  {
+    "name": "tera",
+    "symbol": "T",
+    "base10": "12",
+    "scale": "Trillion"
+  },
+  {
+    "name": "giga",
+    "symbol": "G",
+    "base10": "9",
+    "scale": "Billion"
+  },
+  {
+    "name": "mega",
+    "symbol": "M",
+    "base10": "6",
+    "scale": "Million"
+  },
+  {
+    "name": "kilo",
+    "symbol": "k",
+    "base10": "3",
+    "scale": "Thousand"
+  },
+  {
+    "name": "hecto",
+    "symbol": "h",
+    "base10": "2",
+    "scale": "Hundred"
+  },
+  {
+    "name": "deca",
+    "symbol": "da",
+    "base10": "1",
+    "scale": "Ten"
+  },
+  {
+    "name": "deci",
+    "symbol": "d",
+    "base10": "-1",
+    "scale": "Tenth"
+  },
+  {
+    "name": "centi",
+    "symbol": "c",
+    "base10": "-2",
+    "scale": "Hundredth"
+  },
+  {
+    "name": "milli",
+    "symbol": "m",
+    "base10": "-3",
+    "scale": "Thousandth"
+  },
+  {
+    "name": "micro",
+    "symbol": "µ",
+    "base10": "-6",
+    "scale": "Millionth"
+  },
+  {
+    "name": "nano",
+    "symbol": "n",
+    "base10": "-9",
+    "scale": "Billionth"
+  },
+  {
+    "name": "pico",
+    "symbol": "p",
+    "base10": "-12",
+    "scale": "Trillionth"
+  },
+  {
+    "name": "femto",
+    "symbol": "f",
+    "base10": "-15",
+    "scale": "Quadrillionth"
+  },
+  {
+    "name": "atto",
+    "symbol": "a",
+    "base10": "-18",
+    "scale": "Quintillionth"
+  },
+  {
+    "name": "zepto",
+    "symbol": "z",
+    "base10": "-21",
+    "scale": "Sextillionth"
+  },
+  {
+    "name": "yocto",
+    "symbol": "y",
+    "base10": "-24",
+    "scale": "Septillionth"
+  }
+]
