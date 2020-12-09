@@ -34,13 +34,13 @@ namespace uBeac.Web
         }
     }
 
-    public class ApplicationContext : ApplicationContext<int>, IApplicationContext
+    public class ApplicationContext : ApplicationContext<Guid>, IApplicationContext
     {
         public ApplicationContext(IServiceProvider serviceProvider, IHttpContextAccessor httpContextAccessor) : base(serviceProvider, httpContextAccessor)
         {
             var userIdClaim = HttpContextAccessor.HttpContext.User.Claims.Where(x => x.Type == ClaimTypes.NameIdentifier).SingleOrDefault();
             if (userIdClaim is null)
-                UserId = 0;
+                UserId = Guid.Empty;
         }
     }
 }

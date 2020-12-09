@@ -2,7 +2,8 @@
 {
     public enum AccessLevel
     {
-        View = 0,
-        Admin = 1
+        Owner = 0,
+        Admin = 1,
+        View = 2
     }
 }

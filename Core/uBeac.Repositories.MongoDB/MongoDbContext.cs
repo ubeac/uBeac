@@ -8,7 +8,7 @@ namespace uBeac.Repositories.MongoDB
         string ConnectionString { get; }
     }
 
-    public class MongoDbContext : IMongoDbContext
+    public abstract class MongoDbContext : IMongoDbContext
     {
         private readonly IMongoDatabase _database;
         private readonly string _connectionString;

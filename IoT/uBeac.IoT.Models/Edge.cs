@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using uBeac.Common;
 
 namespace uBeac.IoT.Models
 {
-    public class Edge : BaseTeamEntity
+    public class Edge : BaseEntity
     {
+        public string Name { get; set; }
         public Guid FirmwareId { get; set; }
         public EdgeHttpSecurity Http { get; set; }
         public EdgeMqttSecurity Mqtt { get; set; }

@@ -8,8 +8,7 @@ using uBeac.Services.Abstractions;
 
 namespace uBeac.Services
 {
-    public class EntityService<TKey, TEntity>
-       : IEntityService<TKey, TEntity>
+    public class EntityService<TKey, TEntity> : IEntityService<TKey, TEntity>
        where TEntity : class, IEntity<TKey>
        where TKey : IEquatable<TKey>
     {
@@ -20,28 +19,25 @@ namespace uBeac.Services
             Repository = repository;
         }
 
-        public virtual async Task<bool> Add(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task Add(TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
 
             await Repository.Insert(entity, cancellationToken);
-            return true;
         }
 
-        public virtual async Task<bool> Update(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task Update(TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
 
             await Repository.Update(entity, cancellationToken);
-            return true;
         }
 
-        public virtual async Task<bool> Delete(TKey id, CancellationToken cancellationToken = default)
+        public virtual async Task Delete(TKey id, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
 
             await Repository.Delete(id, cancellationToken);
-            return true;
         }
 
         public virtual async Task<PaginatedList<TEntity>> GetAll(CancellationToken cancellationToken = default)
@@ -69,14 +65,13 @@ namespace uBeac.Services
             return await Repository.Filter(filterCriteria, cancellationToken);
         }
     }
-    public class EntityService<TEntity>
-        : EntityService<Guid, TEntity>
+    public class EntityService<TEntity> : EntityService<Guid, TEntity>, IEntityService<Guid, TEntity>
         where TEntity : class, IEntity
     {
         public EntityService(IEntityRepository<TEntity> repository) : base(repository)
         {
         }
-        public override async Task<bool> Add(TEntity entity, CancellationToken cancellationToken = default)
+        public override async Task Add(TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             if (entity.Id != Guid.Empty)
@@ -84,7 +79,7 @@ namespace uBeac.Services
                 throw new Exception(string.Format("Exception while adding {0}, Id has been set to {1}", entity.GetType().Name, entity.Id.ToString()));
             }
 
-            return await base.Add(entity, cancellationToken);
+            await base.Add(entity, cancellationToken);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace uBeac.Common
         public DateTime UpdateDate { get; set; }
     }
 
-    public class BaseEntity : BaseEntity<Guid>, IEntity
+    public class BaseEntity : BaseEntity<Guid>, IBaseEntity
     {
     }
 }

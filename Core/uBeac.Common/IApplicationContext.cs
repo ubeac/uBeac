@@ -15,7 +15,7 @@ namespace uBeac.Common
         public string SessionId { get; }
         public Dictionary<object, object> ContextData { get; }
     }
-    public interface IApplicationContext : IApplicationContext<int>
+    public interface IApplicationContext : IApplicationContext<Guid>
     {
     }
 }

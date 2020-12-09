@@ -10,9 +10,9 @@ namespace uBeac.Services.Abstractions
        where TEntity : class, IBaseEntity<TKey>
        where TKey : IEquatable<TKey>
     {
-        Task<bool> Add(TEntity entity, CancellationToken cancellationToken = default);
-        Task<bool> Update(TEntity entity, CancellationToken cancellationToken = default);
-        Task<bool> Delete(TKey id, CancellationToken cancellationToken = default);
+        Task Add(TEntity entity, CancellationToken cancellationToken = default);
+        Task Update(TEntity entity, CancellationToken cancellationToken = default);
+        Task Delete(TKey id, CancellationToken cancellationToken = default);
         Task<PaginatedList<TEntity>> GetAll(CancellationToken cancellationToken = default);
         Task<TEntity> GetById(TKey id, CancellationToken cancellationToken = default);
         Task<PaginatedList<TEntity>> GetByIds(IEnumerable<TKey> ids, CancellationToken cancellationToken = default);
