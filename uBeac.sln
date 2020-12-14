@@ -37,13 +37,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoT", "IoT", "{C6F9863C-F8B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.IoT.Models", "IoT\uBeac.IoT.Models\uBeac.IoT.Models.csproj", "{C3ADF827-66FA-49EE-9357-8E3EEC9F9997}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Auth", "IoT\uBeac.Auth\uBeac.Auth.csproj", "{33638433-ED8C-4443-98DA-8B7C38E5D7B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Auth", "IoT\uBeac.Auth\uBeac.Auth.csproj", "{33638433-ED8C-4443-98DA-8B7C38E5D7B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Common.Identity", "Core\uBeac.Common.Identity\uBeac.Common.Identity.csproj", "{56A441FC-60BF-49C2-A24A-2D1CBB8DEA7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uBeac.Common.Identity", "Core\uBeac.Common.Identity\uBeac.Common.Identity.csproj", "{56A441FC-60BF-49C2-A24A-2D1CBB8DEA7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Identity.Repositories.Abstractions", "Core\uBeac.Identity.Repositories.Abstractions\uBeac.Identity.Repositories.Abstractions.csproj", "{32C12DA1-7A3B-46D8-990C-8A20B785DB24}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Identity.Repositories.MongoDB", "Core\uBeac.Identity.Repositories.MongoDB\uBeac.Identity.Repositories.MongoDB.csproj", "{0CB640F6-1C1A-488D-9D01-BADE32C5065C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uBeac.Identity.MongoDB", "Core\uBeac.Identity.MongoDB\uBeac.Identity.MongoDB.csproj", "{AEA4102F-14F2-4D49-847A-4B613148FD20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,14 +117,10 @@ Global
 		{56A441FC-60BF-49C2-A24A-2D1CBB8DEA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56A441FC-60BF-49C2-A24A-2D1CBB8DEA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56A441FC-60BF-49C2-A24A-2D1CBB8DEA7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32C12DA1-7A3B-46D8-990C-8A20B785DB24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32C12DA1-7A3B-46D8-990C-8A20B785DB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32C12DA1-7A3B-46D8-990C-8A20B785DB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32C12DA1-7A3B-46D8-990C-8A20B785DB24}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0CB640F6-1C1A-488D-9D01-BADE32C5065C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0CB640F6-1C1A-488D-9D01-BADE32C5065C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0CB640F6-1C1A-488D-9D01-BADE32C5065C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0CB640F6-1C1A-488D-9D01-BADE32C5065C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEA4102F-14F2-4D49-847A-4B613148FD20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEA4102F-14F2-4D49-847A-4B613148FD20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEA4102F-14F2-4D49-847A-4B613148FD20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEA4102F-14F2-4D49-847A-4B613148FD20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -149,8 +143,7 @@ Global
 		{C3ADF827-66FA-49EE-9357-8E3EEC9F9997} = {C6F9863C-F8B2-4225-BC05-34530497F95A}
 		{33638433-ED8C-4443-98DA-8B7C38E5D7B6} = {C6F9863C-F8B2-4225-BC05-34530497F95A}
 		{56A441FC-60BF-49C2-A24A-2D1CBB8DEA7C} = {D3A62149-358A-419B-AEDE-875196BCBC87}
-		{32C12DA1-7A3B-46D8-990C-8A20B785DB24} = {D3A62149-358A-419B-AEDE-875196BCBC87}
-		{0CB640F6-1C1A-488D-9D01-BADE32C5065C} = {D3A62149-358A-419B-AEDE-875196BCBC87}
+		{AEA4102F-14F2-4D49-847A-4B613148FD20} = {D3A62149-358A-419B-AEDE-875196BCBC87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12959291-7F72-4E75-B672-1959E9CC8B48}

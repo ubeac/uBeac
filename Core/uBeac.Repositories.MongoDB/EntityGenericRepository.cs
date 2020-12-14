@@ -112,8 +112,7 @@ namespace uBeac.Repositories.MongoDB
             id.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
 
-            var filter = Builders<TEntity>.Filter.Eq(x => x.Id, id);
-            var result = await Collection.FindAsync(filter, cancellationToken: cancellationToken);
+            var result = await Collection.FindAsync(x => x.Id.Equals(id), cancellationToken: cancellationToken);
             return result.FirstOrDefault();
         }
 

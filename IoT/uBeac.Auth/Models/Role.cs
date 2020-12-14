@@ -1,8 +1,9 @@
-﻿using uBeac.Common.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace uBeac.Auth.Models
 {
-    public class Role : BaseIdentityRole
+    public class Role : IdentityRole<Guid>
     {
     }
 }

@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\uBeac.Identity.Repositories.MongoDB\uBeac.Identity.Repositories.MongoDB.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\uBeac.Identity.MongoDB\uBeac.Identity.MongoDB.csproj" />
     <ProjectReference Include="..\..\Core\uBeac.Web\uBeac.Web.csproj" />
   </ItemGroup>
 

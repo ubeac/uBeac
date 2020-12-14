@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using uBeac.Auth.Models;
 using uBeac.Web.Api.Controllers;
 
 namespace uBeac.Auth.Controllers
@@ -8,20 +10,38 @@ namespace uBeac.Auth.Controllers
     public class AccountController : BaseController
     {
         private readonly UserManager<User> _userManager;
-        public AccountController(UserManager<User> userManager)
+        private readonly RoleManager<Role> _roleManager;
+
+        public AccountController(UserManager<User> userManager, RoleManager<Role> roleManager)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
         }
         [Post]
-        public async Task Add(CancellationToken cancellationToken = default)
+        public async Task Register(CancellationToken cancellationToken = default)
         {
-            var x = new User
+            var roles = new List<Role>
             {
-                Email = "ap1@momentaj.com",
-                UserName = "admin1"
+                new Role{ Name="Registered" },
+                new Role{ Name="All" },
+                new Role{ Name="Admin" },
             };
 
-          var x1 =   await _userManager.CreateAsync(x, "admin");
+            roles.ForEach(async x => await _roleManager.CreateAsync(x));
+
+            var user = new User
+            {
+                Email = "ali@momentaj.com",
+                UserName = "ali",
+                PhoneNumber = "321321321321"
+            };
+
+            var result = await _userManager.CreateAsync(user, "123");
+            //if (!result.Succeeded)
+            //    return;
+
+           var x222= await _userManager.AddToRoleAsync(user, "Registered");
+            var cd = 0;
         }
     }
 
