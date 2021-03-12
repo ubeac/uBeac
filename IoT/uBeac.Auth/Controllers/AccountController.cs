@@ -41,7 +41,6 @@ namespace uBeac.Auth.Controllers
             //    return;
 
            var x222= await _userManager.AddToRoleAsync(user, "Registered");
-            var cd = 0;
         }
     }
 

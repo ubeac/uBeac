@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace uBeac.Identity.MongoDB
 {
-   
-    public class MongoUserStore<TUser, TRole, TKey, TUserClaim, TUserRole, TUserLogin, TUserToken, TRoleClaim> :
+
+    public class UserStore<TUser, TRole, TKey, TUserClaim, TUserRole, TUserLogin, TUserToken, TRoleClaim> :
         UserStoreBase<TUser, TRole, TKey, TUserClaim, TUserRole, TUserLogin, TUserToken, TRoleClaim>,
         IProtectedUserStore<TUser>
         where TUser : IdentityUser<TKey>
@@ -24,6 +24,7 @@ namespace uBeac.Identity.MongoDB
         where TRoleClaim : IdentityRoleClaim<TKey>, new()
     {
 
+        private readonly IMongoDatabase _mongoDatabase;
         private readonly IMongoCollection<TUser> _userCollection;
         private readonly IMongoCollection<TUserClaim> _userClaimsCollection;
         private readonly IMongoCollection<TUserLogin> _userLoginsCollection;
@@ -31,27 +32,16 @@ namespace uBeac.Identity.MongoDB
         private readonly IMongoCollection<TUserToken> _userTokensCollection;
         private readonly IMongoCollection<TRole> _rolesCollection;
 
-        public MongoUserStore(IdentityErrorDescriber describer, 
-            IMongoCollection<TUser> userCollection, 
-            IMongoCollection<TUserClaim> userClaimsCollection, 
-            IMongoCollection<TUserLogin> userLoginsCollection, 
-            IMongoCollection<TUserRole> userRolesCollection, 
-            IMongoCollection<TUserToken> userTokensCollection, 
-            IMongoCollection<TRole> rolesCollection) : base(describer)
+        public UserStore(IdentityErrorDescriber describer, IdentityMongoDatabase identityMongoDatabase, MongoDBIdentityOptions mongoDBIdentityOptions) : base(describer)
         {
-            userCollection.ThrowIfNull();
-            userClaimsCollection.ThrowIfNull();
-            userLoginsCollection.ThrowIfNull();
-            userRolesCollection.ThrowIfNull();
-            userTokensCollection.ThrowIfNull();
-            rolesCollection.ThrowIfNull();
+            _mongoDatabase = identityMongoDatabase.Database;
 
-            _userCollection = userCollection;
-            _userClaimsCollection = userClaimsCollection;
-            _userLoginsCollection = userLoginsCollection;
-            _userRolesCollection = userRolesCollection;
-            _userTokensCollection = userTokensCollection;
-            _rolesCollection = rolesCollection;
+            _userCollection = _mongoDatabase.GetCollection<TUser>(mongoDBIdentityOptions.UsersCollection);
+            _userClaimsCollection = _mongoDatabase.GetCollection<TUserClaim>(mongoDBIdentityOptions.UserClaimsCollection);
+            _userLoginsCollection = _mongoDatabase.GetCollection<TUserLogin>(mongoDBIdentityOptions.UserLoginsCollection);
+            _userRolesCollection = _mongoDatabase.GetCollection<TUserRole>(mongoDBIdentityOptions.UserRolesCollection);
+            _userTokensCollection = _mongoDatabase.GetCollection<TUserToken>(mongoDBIdentityOptions.UserTokensCollection);
+            _rolesCollection = _mongoDatabase.GetCollection<TRole>(mongoDBIdentityOptions.RolesCollection);
 
             EnsureIndex(x => x.Email);
             EnsureIndex(x => x.NormalizedEmail);
@@ -69,7 +59,6 @@ namespace uBeac.Identity.MongoDB
         #region IUserStore
         public override async Task<IdentityResult> CreateAsync(TUser user, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -80,7 +69,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<IdentityResult> DeleteAsync(TUser user, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -91,7 +79,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<TUser> FindByIdAsync(string userId, CancellationToken cancellationToken)
         {
-            userId.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -103,7 +90,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<IdentityResult> UpdateAsync(TUser user, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -114,7 +100,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<TUser> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
         {
-            normalizedUserName.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -130,8 +115,6 @@ namespace uBeac.Identity.MongoDB
         #region IUserClaimStore
         public override async Task AddClaimsAsync(TUser user, IEnumerable<Claim> claims, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
-            claims.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -145,7 +128,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<IList<Claim>> GetClaimsAsync(TUser user, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -155,7 +137,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<IList<TUser>> GetUsersForClaimAsync(Claim claim, CancellationToken cancellationToken)
         {
-            claim.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -166,9 +147,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task ReplaceClaimAsync(TUser user, Claim claim, Claim newClaim, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
-            claim.ThrowIfNull();
-            newClaim.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -181,8 +159,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task RemoveClaimsAsync(TUser user, IEnumerable<Claim> claims, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
-            claims.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -197,8 +173,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task AddLoginAsync(TUser user, UserLoginInfo login, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
-            login.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -208,8 +182,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<TUser> FindByLoginAsync(string loginProvider, string providerKey, CancellationToken cancellationToken)
         {
-            loginProvider.ThrowIfNull();
-            providerKey.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -223,7 +195,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<IList<UserLoginInfo>> GetLoginsAsync(TUser user, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -235,9 +206,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task RemoveLoginAsync(TUser user, string loginProvider, string providerKey, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
-            loginProvider.ThrowIfNull();
-            providerKey.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -250,8 +218,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task AddToRoleAsync(TUser user, string roleName, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
-            roleName.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -266,7 +232,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<IList<string>> GetRolesAsync(TUser user, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -281,7 +246,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<IList<TUser>> GetUsersInRoleAsync(string roleName, CancellationToken cancellationToken)
         {
-            roleName.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -299,8 +263,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<bool> IsInRoleAsync(TUser user, string roleName, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
-            roleName.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -314,8 +276,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task RemoveFromRoleAsync(TUser user, string roleName, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
-            roleName.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -333,7 +293,6 @@ namespace uBeac.Identity.MongoDB
 
         public override async Task<TUser> FindByEmailAsync(string normalizedEmail, CancellationToken cancellationToken)
         {
-            normalizedEmail.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -346,7 +305,6 @@ namespace uBeac.Identity.MongoDB
 
         protected override async Task<TUser> FindUserAsync(TKey userId, CancellationToken cancellationToken)
         {
-            userId.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -355,7 +313,6 @@ namespace uBeac.Identity.MongoDB
 
         protected override async Task<TUserLogin> FindUserLoginAsync(TKey userId, string loginProvider, string providerKey, CancellationToken cancellationToken)
         {
-            userId.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -372,7 +329,6 @@ namespace uBeac.Identity.MongoDB
 
         protected override async Task<TUserToken> FindTokenAsync(TUser user, string loginProvider, string name, CancellationToken cancellationToken)
         {
-            user.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -381,7 +337,6 @@ namespace uBeac.Identity.MongoDB
 
         protected override async Task AddUserTokenAsync(TUserToken token)
         {
-            token.ThrowIfNull();
             ThrowIfDisposed();
 
             await _userTokensCollection.InsertOneAsync(token);
@@ -389,7 +344,6 @@ namespace uBeac.Identity.MongoDB
 
         protected override async Task RemoveUserTokenAsync(TUserToken token)
         {
-            token.ThrowIfNull();
             ThrowIfDisposed();
 
             await _userTokensCollection.DeleteOneAsync(x => x.UserId.Equals(token.UserId) && x.Name == token.Name && x.LoginProvider == token.LoginProvider && x.Value == token.Value);
@@ -408,18 +362,12 @@ namespace uBeac.Identity.MongoDB
         #endregion
     }
 
-    public class MongoUserStore<TUser, TRole, TKey> : MongoUserStore<TUser, TRole, TKey, IdentityUserClaim<TKey>, IdentityUserRole<TKey>, IdentityUserLogin<TKey>, IdentityUserToken<TKey>, IdentityRoleClaim<TKey>>
+    public class MongoDBUserStore<TUser, TRole, TKey> : UserStore<TUser, TRole, TKey, IdentityUserClaim<TKey>, IdentityUserRole<TKey>, IdentityUserLogin<TKey>, IdentityUserToken<TKey>, IdentityRoleClaim<TKey>>
         where TUser : IdentityUser<TKey>
         where TRole : IdentityRole<TKey>
         where TKey : IEquatable<TKey>
     {
-        public MongoUserStore(IdentityErrorDescriber describer,
-           IMongoCollection<TUser> userCollection,
-           IMongoCollection<IdentityUserClaim<TKey>> userClaimsCollection,
-           IMongoCollection<IdentityUserLogin<TKey>> userLoginsCollection,
-           IMongoCollection<IdentityUserRole<TKey>> userRolesCollection,
-           IMongoCollection<IdentityUserToken<TKey>> userTokensCollection,
-           IMongoCollection<TRole> rolesCollection) : base(describer, userCollection, userClaimsCollection, userLoginsCollection, userRolesCollection, userTokensCollection, rolesCollection)
+        public MongoDBUserStore(IdentityErrorDescriber describer, IdentityMongoDatabase identityMongoDatabase, MongoDBIdentityOptions mongoDBIdentityOptions) : base(describer, identityMongoDatabase, mongoDBIdentityOptions)
         {
         }
     }

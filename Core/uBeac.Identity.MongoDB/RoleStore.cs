@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace uBeac.Identity.MongoDB
 {
-    public class MongoRoleStore<TRole, TKey, TUserRole, TRoleClaim> : IRoleStore<TRole>, IQueryableRoleStore<TRole>, IRoleClaimStore<TRole>, IDisposable
+    public class RoleStore<TRole, TKey, TUserRole, TRoleClaim> : IRoleStore<TRole>, IQueryableRoleStore<TRole>, IRoleClaimStore<TRole>, IDisposable
        where TRole : IdentityRole<TKey>
        where TKey : IEquatable<TKey>
        where TUserRole : IdentityUserRole<TKey>, new()
@@ -20,14 +20,14 @@ namespace uBeac.Identity.MongoDB
     {
         private readonly IMongoCollection<TRole> _roleCollection;
         private readonly IMongoCollection<TRoleClaim> _roleClaimsCollection;
+        private readonly IMongoDatabase _mongoDatabase;
 
-        public MongoRoleStore(IMongoCollection<TRole> roleCollection, IMongoCollection<TRoleClaim> roleClaimsCollection)
+        public RoleStore(IdentityMongoDatabase identityMongoDatabase, MongoDBIdentityOptions mongoDBIdentityOptions)
         {
-            roleCollection.ThrowIfNull();
-            roleClaimsCollection.ThrowIfNull();
+            _mongoDatabase = identityMongoDatabase.Database;
 
-            _roleCollection = roleCollection;
-            _roleClaimsCollection = roleClaimsCollection;
+            _roleCollection = _mongoDatabase.GetCollection<TRole>(mongoDBIdentityOptions.RolesCollection);
+            _roleClaimsCollection = _mongoDatabase.GetCollection<TRoleClaim>(mongoDBIdentityOptions.RoleClaimsCollection);
 
             EnsureIndex(x => x.NormalizedName);
             EnsureIndex(x => x.Name);
@@ -52,7 +52,6 @@ namespace uBeac.Identity.MongoDB
 
         public virtual async Task<IdentityResult> CreateAsync(TRole role, CancellationToken cancellationToken)
         {
-            role.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -63,7 +62,6 @@ namespace uBeac.Identity.MongoDB
 
         public virtual async Task<IdentityResult> UpdateAsync(TRole role, CancellationToken cancellationToken)
         {
-            role.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -76,7 +74,6 @@ namespace uBeac.Identity.MongoDB
 
         public virtual async Task<IdentityResult> DeleteAsync(TRole role, CancellationToken cancellationToken)
         {
-            role.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -87,7 +84,6 @@ namespace uBeac.Identity.MongoDB
 
         public virtual async Task<TRole> FindByIdAsync(string roleId, CancellationToken cancellationToken)
         {
-            roleId.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -98,7 +94,6 @@ namespace uBeac.Identity.MongoDB
 
         public virtual async Task<TRole> FindByNameAsync(string normalizedRoleName, CancellationToken cancellationToken)
         {
-            normalizedRoleName.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -107,7 +102,6 @@ namespace uBeac.Identity.MongoDB
 
         public virtual Task<string> GetNormalizedRoleNameAsync(TRole role, CancellationToken cancellationToken)
         {
-            role.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -116,7 +110,6 @@ namespace uBeac.Identity.MongoDB
 
         public virtual Task<string> GetRoleIdAsync(TRole role, CancellationToken cancellationToken)
         {
-            role.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -125,7 +118,6 @@ namespace uBeac.Identity.MongoDB
 
         public virtual Task<string> GetRoleNameAsync(TRole role, CancellationToken cancellationToken)
         {
-            role.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -134,8 +126,6 @@ namespace uBeac.Identity.MongoDB
 
         public virtual Task SetNormalizedRoleNameAsync(TRole role, string normalizedName, CancellationToken cancellationToken)
         {
-            role.ThrowIfNull();
-            normalizedName.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -146,8 +136,6 @@ namespace uBeac.Identity.MongoDB
 
         public virtual Task SetRoleNameAsync(TRole role, string roleName, CancellationToken cancellationToken)
         {
-            role.ThrowIfNull();
-            roleName.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -172,8 +160,6 @@ namespace uBeac.Identity.MongoDB
 
         public async Task AddClaimAsync(TRole role, Claim claim, CancellationToken cancellationToken = default)
         {
-            role.ThrowIfNull();
-            claim.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -183,7 +169,6 @@ namespace uBeac.Identity.MongoDB
 
         public async Task<IList<Claim>> GetClaimsAsync(TRole role, CancellationToken cancellationToken = default)
         {
-            role.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
@@ -193,8 +178,6 @@ namespace uBeac.Identity.MongoDB
 
         public async Task RemoveClaimAsync(TRole role, Claim claim, CancellationToken cancellationToken = default)
         {
-            role.ThrowIfNull();
-            claim.ThrowIfNull();
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
